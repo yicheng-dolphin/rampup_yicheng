@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, user-scalable=no" />
     <title>news</title>
     <link href="css/index.css" rel="stylesheet" type="text/css">
+    <script data-main="js/main.js" src="vendor/require.js" defer async="true"></script>
 </head>
 <body>
 </body>
@@ -23,27 +24,14 @@
                 <div class="news-img"><img src="{{value.data.images[0]}}" alt=""></div>
                 <div class="des">
                     <h1>{{value.data.newsTitle}}</h1>
-                    <p class="sub-des"><span class="ori">{{value.data.authorName}}</span></p>
+                    <p class="sub-des">
+                    <span class="tim">{{value.data.pubDate | dateToDay}}</span>
+                    <span class="ori">{{value.data.authorName}}</span>
+                    </p>
                 </div>
             </li>
             {{/if}}
         {{/each}}
     </ul>
-</script>
-<script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>
-<script src="./vendor/template.js" ></script>
-<script type="text/javascript">
-Zepto(function($){
-   $.get("data.txt", function(data){
-        var json = JSON.parse(data);
-        if(json){
-            var html = template('news-item', {list: json});
-            $('body').append(html);
-        }
-   });
-   $(document).on('click', '.list-item', function(){
-        window.location.href = ($(this).attr('data-lnk'));
-   });
-});
 </script>
 </html>

@@ -13,6 +13,9 @@
   margin-left: 20px;
   width: 60%; }
 
+.tim {
+  float: left; }
+
 .sub-des {
   text-align: right;
   font-size: 0.8em; }
